@@ -1,7 +1,5 @@
 
-import type { SkillCategory, Experience, Education, Certification, Project, PersonalInfo } from './types';
-
-export const SKILLS: SkillCategory[] = [
+export const SKILLS = [
     {
         name: 'Healthcare IT Systems',
         skills: ['HIS/HMS/EMR/EHR', 'PACS/RIS/LIS', 'HL7/DICOM Standards', 'Workflow Optimization', 'System Integration']
@@ -20,7 +18,7 @@ export const SKILLS: SkillCategory[] = [
     }
 ];
 
-export const EXPERIENCES: Experience[] = [
+export const EXPERIENCES = [
     {
         role: 'Asst. Manager (System Analyst, Application Support & IT Operations)',
         company: 'Evercare Group (Care Hospitals)',
@@ -72,7 +70,7 @@ export const EXPERIENCES: Experience[] = [
     }
 ];
 
-export const PROJECTS: Project[] = [
+export const PROJECTS = [
     {
         name: 'Multi-Site Miracle HIS Implementation',
         context: 'Evercare Group (Care Hospitals) | 2023 – Present',
@@ -93,7 +91,7 @@ export const PROJECTS: Project[] = [
     }
 ];
 
-export const EDUCATION: Education[] = [
+export const EDUCATION = [
     {
         degree: 'Bachelor of Science - Information Technology',
         institution: 'Lovely Professional University - Jalandhar, India',
@@ -106,7 +104,7 @@ export const EDUCATION: Education[] = [
     }
 ];
 
-export const CERTIFICATIONS: Certification[] = [
+export const CERTIFICATIONS = [
     {
         name: 'Information Systems Auditing, Controls & Assurance',
         issuer: 'The Hong Kong University of Science And Technology',
@@ -120,7 +118,7 @@ export const CERTIFICATIONS: Certification[] = [
 ];
 
 
-export const PERSONAL_INFO: PersonalInfo = {
+export const PERSONAL_INFO = {
     name: 'Yogesh Singh',
     title: 'Healthcare IT Specialist | HIS/ERP/CRM Implementation & Digital Transformation',
     email: 'justyogeshsingh@gmail.com',

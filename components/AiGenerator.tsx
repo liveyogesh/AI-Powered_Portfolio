@@ -1,19 +1,18 @@
 
 import React, { useState, useCallback } from 'react';
 import { generateTailoredContent } from '../services/geminiService';
-import type { GeneratedContent } from '../types';
 import { PERSONAL_INFO } from '../constants';
 import { Clipboard, Check, AlertTriangle, Download, FileText, Bot } from 'lucide-react';
 
-const AiGenerator: React.FC = () => {
+const AiGenerator = () => {
     const [jobDescription, setJobDescription] = useState('');
     const [role, setRole] = useState('');
-    const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
+    const [generatedContent, setGeneratedContent] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
-    const [activeTab, setActiveTab] = useState<'coverLetter' | 'resume'>('coverLetter');
+    const [error, setError] = useState(null);
+    const [activeTab, setActiveTab] = useState('coverLetter');
 
-    const [copied, setCopied] = useState<'coverLetter' | 'resume' | null>(null);
+    const [copied, setCopied] = useState(null);
 
     const handleGenerate = useCallback(async () => {
         if (!jobDescription.trim() || !role.trim()) {
@@ -41,7 +40,7 @@ const AiGenerator: React.FC = () => {
         }
     }, [jobDescription, role]);
 
-    const handleCopy = (content: string, type: 'coverLetter' | 'resume') => {
+    const handleCopy = (content, type) => {
         navigator.clipboard.writeText(content);
         setCopied(type);
         setTimeout(() => setCopied(null), 2000);

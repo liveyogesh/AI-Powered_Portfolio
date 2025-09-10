@@ -2,10 +2,9 @@
 import React from 'react';
 import { Mail, Linkedin, Phone, Briefcase, Code, GraduationCap, Star, User, Settings, FileText } from 'lucide-react';
 import { SKILLS, EXPERIENCES, EDUCATION, CERTIFICATIONS, PROJECTS, PERSONAL_INFO } from './constants';
-import type { SkillCategory, Experience, Education as EducationType, Certification, Project } from './types';
 import AiGenerator from './components/AiGenerator';
 
-const Section: React.FC<{ id: string; title: string; icon: React.ReactNode; children: React.ReactNode }> = ({ id, title, icon, children }) => (
+const Section = ({ id, title, icon, children }) => (
     <section id={id} className="mb-16 scroll-mt-20">
         <h2 className="text-3xl font-bold font-display text-brand-primary mb-8 flex items-center gap-3">
             {icon}
@@ -15,7 +14,7 @@ const Section: React.FC<{ id: string; title: string; icon: React.ReactNode; chil
     </section>
 );
 
-const ExperienceCard: React.FC<{ experience: Experience }> = ({ experience }) => (
+const ExperienceCard = ({ experience }) => (
     <div className="mb-8 last:mb-0">
         <div className="flex justify-between items-start">
             <h3 className="text-xl font-bold text-white">{experience.role}</h3>
@@ -33,7 +32,7 @@ const ExperienceCard: React.FC<{ experience: Experience }> = ({ experience }) =>
     </div>
 );
 
-const App: React.FC = () => {
+const App = () => {
     return (
         <div className="min-h-screen bg-brand-dark">
             <main className="container mx-auto max-w-4xl px-4 py-16 sm:py-24">
@@ -61,11 +60,11 @@ const App: React.FC = () => {
                 
                 <Section id="skills" title="Core Skills" icon={<Star />}>
                     <div className="space-y-6">
-                        {SKILLS.map((category: SkillCategory) => (
+                        {SKILLS.map((category) => (
                             <div key={category.name}>
                                 <h3 className="text-xl font-semibold text-white mb-3">{category.name}</h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {category.skills.map((skill: string) => (
+                                    {category.skills.map((skill) => (
                                         <span key={skill} className="bg-brand-mid text-brand-primary text-sm font-medium px-3 py-1 rounded-full">{skill}</span>
                                     ))}
                                 </div>
@@ -82,7 +81,7 @@ const App: React.FC = () => {
 
                 <Section id="projects" title="Key Projects" icon={<Code />}>
                     <div className="space-y-6">
-                        {PROJECTS.map((project: Project, index: number) => (
+                        {PROJECTS.map((project, index) => (
                             <div key={index} className="bg-brand-mid p-6 rounded-lg">
                                 <h3 className="text-xl font-bold text-white">{project.name}</h3>
                                 <p className="text-brand-accent mb-2">{project.context}</p>
@@ -99,7 +98,7 @@ const App: React.FC = () => {
 
                 <Section id="education" title="Education & Certifications" icon={<GraduationCap />}>
                     <div className="space-y-6">
-                        {EDUCATION.map((edu: EducationType, index: number) => (
+                        {EDUCATION.map((edu, index) => (
                              <div key={index} className="flex justify-between items-start">
                                 <div>
                                     <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
@@ -112,7 +111,7 @@ const App: React.FC = () => {
                     <div className="mt-8 pt-6 border-t border-brand-light">
                         <h3 className="text-xl font-semibold text-white mb-4">Certifications</h3>
                         <ul className="space-y-4">
-                            {CERTIFICATIONS.map((cert: Certification, index: number) => (
+                            {CERTIFICATIONS.map((cert, index) => (
                                 <li key={index}>
                                     <p className="font-bold text-white">{cert.name}</p>
                                     <p className="text-brand-accent">{cert.issuer} ({cert.year})</p>
